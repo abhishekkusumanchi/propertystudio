@@ -2,7 +2,7 @@ package com.pennant.propertystudio.models;
 
 import java.util.Date;
 
-import org.apache.catalina.authenticator.jaspic.PersistentProviderRegistrations.Property;
+
 
 import jakarta.persistence.*;
 

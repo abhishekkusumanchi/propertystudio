@@ -14,12 +14,12 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "prs_adminusers")
+@Table(name = "prs_admin_users")
 public class AdminUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ausr_id")
-	private Long id;
+	private Integer id;
 
 	@Column(name = "ausr_username", nullable = false)
 	private String username;
@@ -46,11 +46,11 @@ public class AdminUser {
 	private AdminUser lastUpdatedBy;
 
 	// Getters and Setters
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

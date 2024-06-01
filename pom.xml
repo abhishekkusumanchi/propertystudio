@@ -86,11 +86,7 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.spring</groupId>
-			<artifactId>sendingEmail</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		
 	</dependencies>
 
 	<build>
