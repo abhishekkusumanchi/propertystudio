@@ -5,14 +5,14 @@ import java.util.Date;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "prs_projectapartments")
+@Table(name = "prs_project_apartments")
 public class ProjectApartment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "aprt_id")
 	private Long id;
 
-	@Column(name = "aprt_title", nullable = false)
+	@Column(name = "aprt_title", nullable = false, length = 100)
 	private String title;
 
 	@Column(name = "aprt_cdate", nullable = false)
@@ -23,10 +23,10 @@ public class ProjectApartment {
 	@JoinColumn(name = "aprt_proj_id")
 	private Project project;
 
-	@Column(name = "aprt_ref_no")
+	@Column(name = "aprt_ref_no", length = 20)
 	private String referenceNumber;
 
-	@Column(name = "aprt_status")
+	@Column(name = "aprt_status", length = 4)
 	private String status;
 
 	@Override

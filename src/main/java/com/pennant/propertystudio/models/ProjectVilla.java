@@ -6,7 +6,7 @@ import java.util.Date;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "prs_projectvillas")
+@Table(name = "prs_project_villas")
 public class ProjectVilla {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class ProjectVilla {
 	@JoinColumn(name = "vill_proj_id")
 	private Project project;
 
-	@Column(name = "vill_ref_no")
+	@Column(name = "vill_ref_no", length = 20)
 	private String referenceNumber;
 
 	@Column(name = "vill_cdate")
@@ -34,7 +34,7 @@ public class ProjectVilla {
 	@Column(name = "vill_banner_photo")
 	private byte[] bannerPhoto;
 
-	@Column(name = "vill_status")
+	@Column(name = "vill_status", length = 4)
 	private String status;
 
 	public Long getId() {

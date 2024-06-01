@@ -22,28 +22,28 @@ public class Customer {
 	@JoinColumn(name = "cust_prop_id")
 	private Property property;
 
-	@Column(name = "cust_firstname", nullable = false)
+	@Column(name = "cust_firstname", nullable = false, length = 50)
 	private String firstname;
 
-	@Column(name = "cust_lastname", nullable = false)
+	@Column(name = "cust_lastname", nullable = false, length = 50)
 	private String lastname;
 
-	@Column(name = "cust_email", nullable = false)
+	@Column(name = "cust_email", nullable = false, length = 100)
 	private String email;
 
-	@Column(name = "cust_mobile")
+	@Column(name = "cust_mobile", length = 11)
 	private String mobile;
 
-	@Column(name = "cust_address")
+	@Column(name = "cust_address", length = 255)
 	private String address;
 
-	@Column(name = "cust_location")
+	@Column(name = "cust_location", length = 50)
 	private String location;
 
-	@Column(name = "cust_pin")
+	@Column(name = "cust_pin", length = 6)
 	private String pin;
 
-	@Column(name = "cust_city")
+	@Column(name = "cust_city", length = 50)
 	private String city;
 
 	@Column(name = "cust_luudate")

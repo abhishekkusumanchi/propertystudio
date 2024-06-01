@@ -21,19 +21,19 @@ public class Employee {
 	@Column(name = "empl_id")
 	private Long id;
 
-	@Column(name = "empl_fullname", nullable = false)
+	@Column(name = "empl_fullname", nullable = false, length = 70)
 	private String fullname;
 
-	@Column(name = "empl_desg")
+	@Column(name = "empl_desg", length = 50)
 	private String designation;
 
-	@Column(name = "empl_department")
+	@Column(name = "empl_department", length = 50)
 	private String department;
 
-	@Column(name = "empl_ref_no")
+	@Column(name = "empl_ref_no", length = 20)
 	private String referenceNumber;
 
-	@Column(name = "empl_status")
+	@Column(name = "empl_status", length = 4)
 	private String status;
 
 	@Column(name = "empl_ludate")

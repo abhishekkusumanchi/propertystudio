@@ -29,38 +29,38 @@ public class Enquiry {
 	@JoinColumn(name = "enqr_proj_id", nullable = false)
 	private Project project;
 
-	@Column(name = "enqr_fullname", nullable = false)
+	@Column(name = "enqr_fullname", nullable = false, length = 100)
 	private String fullname;
 
-	@Column(name = "enqr_profession")
+	@Column(name = "enqr_profession", length = 60)
 	private String profession;
 
-	@Column(name = "enqr_local")
+	@Column(name = "enqr_local", length = 3)
 	private String local;
 
-	@Column(name = "enqr_mobile")
+	@Column(name = "enqr_mobile", length = 11)
 	private String mobile;
 
-	@Column(name = "enqr_source")
+	@Column(name = "enqr_source", length = 4)
 	private String source;
 
 	@ManyToOne
 	@JoinColumn(name = "enqr_empl_id")
 	private Employee employee;
 
-	@Column(name = "enqr_email")
+	@Column(name = "enqr_email", length = 100)
 	private String email;
 
-	@Column(name = "enqr_address")
+	@Column(name = "enqr_address", length = 255)
 	private String address;
 
-	@Column(name = "enqr_location")
+	@Column(name = "enqr_location", length = 50)
 	private String location;
 
-	@Column(name = "enqr_pin")
+	@Column(name = "enqr_pin", length = 6)
 	private String pin;
 
-	@Column(name = "enqr_city")
+	@Column(name = "enqr_city", length = 50)
 	private String city;
 
 	@Column(name = "enqr_luudate")

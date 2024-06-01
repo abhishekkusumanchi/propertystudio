@@ -6,21 +6,21 @@ import java.util.Date;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "prs_projectcommercialcomplexes")
+@Table(name = "prs_project_commercial_complexes")
 public class ProjectCommercialComplex {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cplx_id")
 	private Long id;
 
-	@Column(name = "cplx_title", nullable = false)
+	@Column(name = "cplx_title", nullable = false, length = 100)
 	private String title;
 
 	@ManyToOne
 	@JoinColumn(name = "cplx_proj_id")
 	private Project project;
 
-	@Column(name = "cplx_ref_no")
+	@Column(name = "cplx_ref_no", length = 20)
 	private String referenceNumber;
 
 	@Column(name = "cplx_cdate")
@@ -37,7 +37,7 @@ public class ProjectCommercialComplex {
 	@Column(name = "cplx_banner_photo")
 	private byte[] bannerPhoto;
 
-	@Column(name = "cplx_status")
+	@Column(name = "cplx_status", length = 4)
 	private String status;
 
 	public Long getId() {

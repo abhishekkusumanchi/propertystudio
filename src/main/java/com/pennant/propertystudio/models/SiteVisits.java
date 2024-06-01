@@ -14,7 +14,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "prs_sitevisits")
+@Table(name = "prs_site_visits")
 public class SiteVisits {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +29,14 @@ public class SiteVisits {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 
-	@Column(name = "stvs_remarks")
+	@Column(name = "stvs_remarks", length = 255)
 	private String remarks;
 
 	@ManyToOne
 	@JoinColumn(name = "stvs_empl_id")
 	private Employee employee;
 
-	@Column(name = "stvs_status")
+	@Column(name = "stvs_status", length = 4)
 	private String status;
 
 	// Getters and Setters
