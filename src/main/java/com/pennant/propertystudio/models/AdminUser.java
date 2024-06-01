@@ -1,14 +1,14 @@
 package com.pennant.propertystudio.models;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -21,13 +21,13 @@ public class AdminUser {
 	@Column(name = "ausr_id")
 	private Integer id;
 
-	@Column(name = "ausr_username", nullable = false)
+	@Column(name = "ausr_username", nullable = false, length = 60)
 	private String username;
 
-	@Column(name = "ausr_fullname")
+	@Column(name = "ausr_fullname", length = 70)
 	private String fullname;
 
-	@Column(name = "ausr_pwd", nullable = false)
+	@Column(name = "ausr_pwd", nullable = false, length = 100)
 	private String password;
 
 	@Column(name = "ausr_cdate")
@@ -38,12 +38,42 @@ public class AdminUser {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastPasswordReset;
 
-	@Column(name = "ausr_status")
+	@Column(name = "ausr_status", length = 4)
 	private String status;
 
-	@ManyToOne
-	@JoinColumn(name = "ausr_luausr_id")
-	private AdminUser lastUpdatedBy;
+	@OneToMany(mappedBy = "lastUpdatedBy")
+    private List<Employee> employees;
+
+	@OneToMany(mappedBy = "lastUpdatedBy")
+    private List<Project> projects;
+    
+    @OneToMany(mappedBy = "lastUpdatedBy")
+    private List<Property> updatedProperties;
+    
+
+	public List<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Employee> employees) {
+		this.employees = employees;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+
+	public List<Property> getUpdatedProperties() {
+		return updatedProperties;
+	}
+
+	public void setUpdatedProperties(List<Property> updatedProperties) {
+		this.updatedProperties = updatedProperties;
+	}
 
 	// Getters and Setters
 	public Integer getId() {
@@ -102,19 +132,6 @@ public class AdminUser {
 		this.status = status;
 	}
 
-	public AdminUser getLastUpdatedBy() {
-		return lastUpdatedBy;
-	}
 
-	public void setLastUpdatedBy(AdminUser lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
-
-	@Override
-	public String toString() {
-		return "AdminUser [id=" + id + ", username=" + username + ", fullname=" + fullname + ", password=" + password
-				+ ", creationDate=" + creationDate + ", lastPasswordReset=" + lastPasswordReset + ", status=" + status
-				+ ", lastUpdatedBy=" + lastUpdatedBy + "]";
-	}
 
 }

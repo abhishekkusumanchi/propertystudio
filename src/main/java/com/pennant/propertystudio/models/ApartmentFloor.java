@@ -1,82 +1,87 @@
 //package com.pennant.propertystudio.models;
 //
-//import java.util.Arrays;
 //import java.util.Date;
-//
 //import jakarta.persistence.Column;
 //import jakarta.persistence.EmbeddedId;
 //import jakarta.persistence.Entity;
 //import jakarta.persistence.JoinColumn;
-//import jakarta.persistence.Lob;
 //import jakarta.persistence.ManyToOne;
 //import jakarta.persistence.Table;
 //import jakarta.persistence.Temporal;
 //import jakarta.persistence.TemporalType;
 //
 //@Entity
-//@Table(name = "prs_apartmentfloors")
+//@Table(name = "prs_apartment_floors")
 //public class ApartmentFloor {
-//	@EmbeddedId
-//	private ApartmentFloorId id;
 //
-//	@Lob
-//	@Column(name = "aprf_floorplan")
-//	private byte[] floorPlan;
+//	@Column(name = "proj_id", nullable = false)
+//    private Short projectId;
 //
-//	@Column(name = "aprf_completion_status")
-//	private String completionStatus;
+//    @Column(name = "aprf_floorplan")
+//    private byte[] floorPlan;
 //
-//	@Column(name = "aprf_luudate")
-//	@Temporal(TemporalType.TIMESTAMP)
-//	private Date lastUpdatedDate;
+//    @Column(name = "aprf_completion_status", length = 4)
+//    private String completionStatus;
 //
-//	@ManyToOne
-//	@JoinColumn(name = "aprf_ausr_id")
-//	private AdminUser lastUpdatedBy;
+//    @Column(name = "aprf_luudate")
+//    @Temporal(TemporalType.TIMESTAMP)
+//    private Date lastUpdatedDate;
 //
-//	public ApartmentFloorId getId() {
-//		return id;
-//	}
+//    @ManyToOne
+//    @JoinColumn(name = "proj_id", referencedColumnName = "proj_id", nullable = false) // Specify the foreign key reference and NOT NULL constraint
+//    private Project project;
 //
-//	public void setId(ApartmentFloorId id) {
-//		this.id = id;
-//	}
+//    @ManyToOne
+//    @JoinColumn(name = "aprf_ausr_id")
+//    private AdminUser lastUpdatedBy;
 //
-//	public byte[] getFloorPlan() {
-//		return floorPlan;
-//	}
+//    // Constructors, getters, and setters
 //
-//	public void setFloorPlan(byte[] floorPlan) {
-//		this.floorPlan = floorPlan;
-//	}
+//    public ApartmentFloorId getId() {
+//        return id;
+//    }
 //
-//	public String getCompletionStatus() {
-//		return completionStatus;
-//	}
+//    public void setId(ApartmentFloorId id) {
+//        this.id = id;
+//    }
 //
-//	public void setCompletionStatus(String completionStatus) {
-//		this.completionStatus = completionStatus;
-//	}
+//    public byte[] getFloorPlan() {
+//        return floorPlan;
+//    }
 //
-//	public Date getLastUpdatedDate() {
-//		return lastUpdatedDate;
-//	}
+//    public void setFloorPlan(byte[] floorPlan) {
+//        this.floorPlan = floorPlan;
+//    }
 //
-//	public void setLastUpdatedDate(Date lastUpdatedDate) {
-//		this.lastUpdatedDate = lastUpdatedDate;
-//	}
+//    public String getCompletionStatus() {
+//        return completionStatus;
+//    }
 //
-//	public AdminUser getLastUpdatedBy() {
-//		return lastUpdatedBy;
-//	}
+//    public void setCompletionStatus(String completionStatus) {
+//        this.completionStatus = completionStatus;
+//    }
 //
-//	public void setLastUpdatedBy(AdminUser lastUpdatedBy) {
-//		this.lastUpdatedBy = lastUpdatedBy;
-//	}
+//    public Date getLastUpdatedDate() {
+//        return lastUpdatedDate;
+//    }
 //
-//	@Override
-//	public String toString() {
-//		return "ApartmentFloor [floorPlan=" + Arrays.toString(floorPlan) + ", completionStatus=" + completionStatus
-//				+ ", lastUpdatedDate=" + lastUpdatedDate + "]";
-//	}
+//    public void setLastUpdatedDate(Date lastUpdatedDate) {
+//        this.lastUpdatedDate = lastUpdatedDate;
+//    }
+//
+//    public Project getProject() {
+//        return project;
+//    }
+//
+//    public void setProject(Project project) {
+//        this.project = project;
+//    }
+//
+//    public AdminUser getLastUpdatedBy() {
+//        return lastUpdatedBy;
+//    }
+//
+//    public void setLastUpdatedBy(AdminUser lastUpdatedBy) {
+//        this.lastUpdatedBy = lastUpdatedBy;
+//    }
 //}

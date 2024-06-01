@@ -1,25 +1,50 @@
 package com.pennant.propertystudio.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "prs_projecttypes")
+@Table(name = "prs_project_types")
 public class ProjectType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "prty_id")
 	private Long id;
+	
+	 @Column(name = "prty_name", nullable = false, length = 100) 
+	 private String name;
+	 
+	 @Column(name = "prty_desc", length = 255)
+	 private String description;
+	 
+	 @OneToMany(mappedBy = "projectType")
+	    private List<Project> projects;
+	 
+	 @OneToMany(mappedBy = "projectType")
+	    private List<Property> properties; 
 
-	@Column(name = "prty_name", nullable = false)
-	private String name;
+	public List<Property> getProperties() {
+		return properties;
+	}
 
-	@Column(name = "prty_desc")
-	private String description;
+	public void setProperties(List<Property> properties) {
+		this.properties = properties;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
 
 	// Getters and Setters
 	public Long getId() {
@@ -46,9 +71,5 @@ public class ProjectType {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "ProjectType [id=" + id + ", name=" + name + ", description=" + description + "]";
-	}
 
 }

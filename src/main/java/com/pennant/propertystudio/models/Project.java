@@ -23,21 +23,21 @@ public class Project {
 	@Column(name = "proj_id")
 	private Long id;
 
-	@Column(name = "proj_title", nullable = false)
+	@Column(name = "proj_title", nullable = false, length = 100)
 	private String title;
 
 	@ManyToOne
 	@JoinColumn(name = "proj_prty_id", nullable = false)
 	private ProjectType projectType;
 
-	@Column(name = "proj_location", nullable = false)
+	@Column(name = "proj_location", nullable = false, length = 100)
 	private String location;
 
 	@Column(name = "proj_cdate", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date creationDate;
 
-	@Column(name = "proj_desc")
+	@Column(name = "proj_desc", length = 255)
 	private String description;
 
 	@Lob
@@ -47,10 +47,10 @@ public class Project {
 	@Column(name = "proj_coordinates")
 	private String coordinates;
 
-	@Column(name = "proj_construction_status")
+	@Column(name = "proj_construction_status", length = 4)
 	private String constructionStatus;
 
-	@Column(name = "proj_status")
+	@Column(name = "proj_status", length = 4)
 	private String status;
 
 	@Column(name = "proj_luudate")

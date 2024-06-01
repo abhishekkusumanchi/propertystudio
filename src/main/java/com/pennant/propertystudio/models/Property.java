@@ -20,13 +20,13 @@ public class Property {
 	@JoinColumn(name = "prop_cust_id")
 	private Customer customer;
 
-	@Column(name = "prop_type")
+	@Column(name = "prop_type", length = 4)
 	private String type;
 
-	@Column(name = "prop_ref_no")
+	@Column(name = "prop_ref_no", length = 20)
 	private String referenceNumber;
 
-	@Column(name = "prop_status")
+	@Column(name = "prop_status", length = 5)
 	private String status;
 
 	@Column(name = "prop_luudate")
