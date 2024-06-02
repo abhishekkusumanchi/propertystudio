@@ -3,7 +3,7 @@ package com.pennant.propertystudio.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "prs_commercialcomplexproperties")
+@Table(name = "prs_commercial_complex_properties")
 public class CommercialComplexProperty {
 	@Id
 	@Column(name = "prop_id")

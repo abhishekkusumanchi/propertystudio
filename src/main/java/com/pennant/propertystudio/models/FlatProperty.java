@@ -9,11 +9,11 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "prs_flatproperties")
+@Table(name = "prs_flat_properties")
 public class FlatProperty {
 	@Id
 	@Column(name = "prop_id")
-	private Long id;
+	private Integer id;
 
 	@OneToOne
 	@MapsId

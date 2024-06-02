@@ -19,7 +19,7 @@ public class Property {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "prop_id")
-	private Long id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn(name = "prop_proj_id")

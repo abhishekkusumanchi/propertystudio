@@ -14,7 +14,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "prs_customerusers")
+@Table(name = "prs_customer_users")
 public class CustomerUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

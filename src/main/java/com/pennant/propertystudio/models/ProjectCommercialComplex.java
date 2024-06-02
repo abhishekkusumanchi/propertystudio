@@ -21,7 +21,7 @@ public class ProjectCommercialComplex {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "cplx_id")
-	private Long id;
+	private Integer id;
 
 	@Column(name = "cplx_title", nullable = false, length = 100)
 	private String title;

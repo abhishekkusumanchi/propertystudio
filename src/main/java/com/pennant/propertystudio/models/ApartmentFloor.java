@@ -17,7 +17,7 @@ import jakarta.persistence.TemporalType;
 public class ApartmentFloor {	
 	@Id
 	@Column(name = "aprf_floorindex", insertable = false, updatable = false)
-    private int floorIndex;
+    private Short floorIndex;
 
     @Column(name = "aprf_floorplan")
     private byte[] floorPlan;
