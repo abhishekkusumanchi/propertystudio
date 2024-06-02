@@ -14,7 +14,7 @@ CREATE TABLE prs_admin_users (
     ausr_cdate TIMESTAMP,
     ausr_lastpwdreset TIMESTAMP,
     ausr_status VARCHAR(4),
-    ausr_luausr_id SMALLINT REFERENCES prs_admin_users(ausr_id)
+    ausr_luausr_id INTEGER REFERENCES prs_admin_users(ausr_id)
 );
 
 CREATE TABLE prs_employees (
@@ -43,6 +43,7 @@ CREATE TABLE prs_projects (
     proj_luudate TIMESTAMP,
     proj_luausr_id SMALLINT REFERENCES prs_admin_users(ausr_id)
 );
+
 CREATE TABLE prs_properties (
     prop_id SERIAL PRIMARY KEY,
     prop_proj_id SMALLINT REFERENCES prs_projects(proj_id),
@@ -56,7 +57,7 @@ CREATE TABLE prs_properties (
 CREATE TABLE prs_enquiries (
     enqr_id SERIAL PRIMARY KEY,
     enqr_date TIMESTAMP NOT NULL,
-    enqr_proj_id SMALLINT NOT NULL REFERENCES prs_projects(proj_id),
+    enqr_proj_id INTEGER NOT NULL REFERENCES prs_projects(proj_id),
     enqr_fullname VARCHAR(100) NOT NULL,
     enqr_profession VARCHAR(60),
     enqr_local VARCHAR(3),
@@ -83,7 +84,7 @@ CREATE TABLE prs_site_visits (
 CREATE TABLE prs_customers (
     cust_id SERIAL PRIMARY KEY,
     cust_enqr_id INT NOT NULL REFERENCES prs_enquiries(enqr_id),
-    cust_prop_id SMALLINT REFERENCES prs_properties(prop_id),
+    cust_prop_id INTEGER REFERENCES prs_properties(prop_id),
     cust_firstname VARCHAR(50) NOT NULL,
     cust_lastname VARCHAR(50) NOT NULL,
     cust_email VARCHAR(100) NOT NULL,
@@ -99,14 +100,14 @@ CREATE TABLE prs_project_apartments (
     aprt_id SERIAL PRIMARY KEY,
     aprt_title VARCHAR(100) NOT NULL,
     aprt_cdate TIMESTAMP NOT NULL,
-    aprt_proj_id SMALLINT REFERENCES prs_projects(proj_id),
+    aprt_proj_id INTEGER REFERENCES prs_projects(proj_id),
     aprt_ref_no VARCHAR(20),
     aprt_status VARCHAR(4)
 );
  
 CREATE TABLE prs_project_villas (
     vill_id SERIAL PRIMARY KEY,
-    vill_proj_id SMALLINT REFERENCES prs_projects(proj_id),
+    vill_proj_id INTEGER REFERENCES prs_projects(proj_id),
     vill_ref_no VARCHAR(20),
     vill_cdate DATE,
     vill_sqft NUMERIC,
@@ -118,22 +119,22 @@ CREATE TABLE prs_project_villas (
 CREATE TABLE prs_project_commercial_complexes (
     cplx_id SERIAL PRIMARY KEY,
     cplx_title VARCHAR(100) NOT NULL,
-    cplx_proj_id SMALLINT REFERENCES prs_projects(proj_id),
+    cplx_proj_id INTEGER REFERENCES prs_projects(proj_id),
     cplx_ref_no VARCHAR(20),
     cplx_cdate DATE,
     cplx_sqft NUMERIC,
     cplx_builtup_area NUMERIC,
-    cplx_banner_photo BYTEA,
+    cplx_banner_photo bytea,
     cplx_status VARCHAR(4)
 );
  
 CREATE TABLE prs_apartment_floors (
-    proj_id SMALLINT NOT NULL REFERENCES prs_projects(proj_id),
+    proj_id INTEGER NOT NULL REFERENCES prs_projects(proj_id),
     aprf_floorindex SMALLINT,
     aprf_floorplan BYTEA,
     aprf_completion_status VARCHAR(4),
     aprf_luudate TIMESTAMP,
-    aprf_ausr_id SMALLINT REFERENCES prs_admin_users(ausr_id),
+    aprf_ausr_id INTEGER REFERENCES prs_admin_users(ausr_id),
     PRIMARY KEY (proj_id, aprf_floorindex)
 );
  
@@ -175,5 +176,7 @@ CREATE TABLE prs_payments (
     pay_status VARCHAR(4),
     pay_luudate TIMESTAMP
 );
+
+
 
 
