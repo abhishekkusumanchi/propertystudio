@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -50,88 +52,11 @@ public class AdminUser {
     @OneToMany(mappedBy = "lastUpdatedBy")
     private List<Property> updatedProperties;
     
+    @ManyToOne
+    @JoinColumn(name = "ausr_luausr_id")
+    private AdminUser lastUpdatedBy;
+    
 
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
-
-	public List<Project> getProjects() {
-		return projects;
-	}
-
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
-	}
-
-	public List<Property> getUpdatedProperties() {
-		return updatedProperties;
-	}
-
-	public void setUpdatedProperties(List<Property> updatedProperties) {
-		this.updatedProperties = updatedProperties;
-	}
-
-	// Getters and Setters
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public Date getLastPasswordReset() {
-		return lastPasswordReset;
-	}
-
-	public void setLastPasswordReset(Date lastPasswordReset) {
-		this.lastPasswordReset = lastPasswordReset;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-
+	
 
 }

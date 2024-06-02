@@ -1,6 +1,12 @@
 package com.pennant.propertystudio.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "prs_flatproperties")
@@ -17,33 +23,6 @@ public class FlatProperty {
 	@Column(name = "prop_flat_no")
 	private String flatNumber;
 
-	@Override
-	public String toString() {
-		return "FlatProperty [id=" + id + ", property=" + property + ", flatNumber=" + flatNumber + "]";
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Property getProperty() {
-		return property;
-	}
-
-	public void setProperty(Property property) {
-		this.property = property;
-	}
-
-	public String getFlatNumber() {
-		return flatNumber;
-	}
-
-	public void setFlatNumber(String flatNumber) {
-		this.flatNumber = flatNumber;
-	}
+	
 
 }

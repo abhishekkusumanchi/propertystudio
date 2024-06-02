@@ -1,10 +1,21 @@
 package com.pennant.propertystudio.models;
 
 import java.util.Date;
+import java.util.List;
 
-
-
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "prs_customers")
@@ -18,7 +29,7 @@ public class Customer {
 	@JoinColumn(name = "cust_enqr_id", nullable = false)
 	private Enquiry enquiry;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "cust_prop_id")
 	private Property property;
 
@@ -50,106 +61,7 @@ public class Customer {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastUpdatedDate;
 
-	public Long getId() {
-		return id;
-	}
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Payment> paymentHistory;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Enquiry getEnquiry() {
-		return enquiry;
-	}
-
-	public void setEnquiry(Enquiry enquiry) {
-		this.enquiry = enquiry;
-	}
-
-	public Property getProperty() {
-		return property;
-	}
-
-	public void setProperty(Property property) {
-		this.property = property;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public String getPin() {
-		return pin;
-	}
-
-	public void setPin(String pin) {
-		this.pin = pin;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Date getLastUpdatedDate() {
-		return lastUpdatedDate;
-	}
-
-	public void setLastUpdatedDate(Date lastUpdatedDate) {
-		this.lastUpdatedDate = lastUpdatedDate;
-	}
-
-	@Override
-	public String toString() {
-		return "Customer [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", mobile=" + mobile + ", address=" + address + ", location=" + location + ", pin=" + pin + ", city="
-				+ city + ", lastUpdatedDate=" + lastUpdatedDate + "]";
-	}
 }

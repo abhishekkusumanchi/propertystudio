@@ -13,13 +13,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
+
 @Entity
 @Table(name = "prs_site_visits")
-public class SiteVisits {
+public class SiteVisit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "stvs_id")
-	private Long id;
+	private Integer id;
 
 	@ManyToOne
 	@JoinColumn(name = "stvs_enqr_id", nullable = false)
@@ -39,60 +40,5 @@ public class SiteVisits {
 	@Column(name = "stvs_status", length = 4)
 	private String status;
 
-	// Getters and Setters
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Enquiry getEnquiry() {
-		return enquiry;
-	}
-
-	public void setEnquiry(Enquiry enquiry) {
-		this.enquiry = enquiry;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "SiteVisits [id=" + id + ", enquiry=" + enquiry + ", date=" + date + ", remarks=" + remarks + ", status="
-				+ status + "]";
-	}
-
+	
 }

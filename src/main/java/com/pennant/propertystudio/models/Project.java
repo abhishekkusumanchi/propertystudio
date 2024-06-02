@@ -1,7 +1,8 @@
 package com.pennant.propertystudio.models;
 
-import java.util.Arrays;
 import java.util.Date;
+
+import org.springframework.data.geo.Point;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +22,7 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "proj_id")
-	private Long id;
+	private Integer id;
 
 	@Column(name = "proj_title", nullable = false, length = 100)
 	private String title;
@@ -45,7 +46,7 @@ public class Project {
 	private byte[] banner;
 
 	@Column(name = "proj_coordinates")
-	private String coordinates;
+	private Point coordinates;
 
 	@Column(name = "proj_construction_status", length = 4)
 	private String constructionStatus;
@@ -61,109 +62,6 @@ public class Project {
 	@JoinColumn(name = "proj_luausr_id")
 	private AdminUser lastUpdatedBy;
 
-	// Getters and Setters
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public ProjectType getProjectType() {
-		return projectType;
-	}
-
-	public void setProjectType(ProjectType projectType) {
-		this.projectType = projectType;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public byte[] getBanner() {
-		return banner;
-	}
-
-	public void setBanner(byte[] banner) {
-		this.banner = banner;
-	}
-
-	public String getCoordinates() {
-		return coordinates;
-	}
-
-	public void setCoordinates(String coordinates) {
-		this.coordinates = coordinates;
-	}
-
-	public String getConstructionStatus() {
-		return constructionStatus;
-	}
-
-	public void setConstructionStatus(String constructionStatus) {
-		this.constructionStatus = constructionStatus;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Date getLastUpdatedDate() {
-		return lastUpdatedDate;
-	}
-
-	public void setLastUpdatedDate(Date lastUpdatedDate) {
-		this.lastUpdatedDate = lastUpdatedDate;
-	}
-
-	public AdminUser getLastUpdatedBy() {
-		return lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(AdminUser lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
-
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", title=" + title + ", projectType=" + projectType + ", location=" + location
-				+ ", creationDate=" + creationDate + ", description=" + description + ", banner="
-				+ Arrays.toString(banner) + ", coordinates=" + coordinates + ", constructionStatus="
-				+ constructionStatus + ", status=" + status + ", lastUpdatedDate=" + lastUpdatedDate + "]";
-	}
 
 }

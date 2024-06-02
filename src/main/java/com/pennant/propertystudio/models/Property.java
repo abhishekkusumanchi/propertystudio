@@ -2,7 +2,16 @@ package com.pennant.propertystudio.models;
 
 import java.util.Date;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "prs_properties")
@@ -15,6 +24,10 @@ public class Property {
 	@ManyToOne
 	@JoinColumn(name = "prop_proj_id")
 	private Project project;
+	
+	@ManyToOne
+    @JoinColumn(name = "prty_id")
+    private ProjectType projectType;
 
 	@ManyToOne
 	@JoinColumn(name = "prop_cust_id")
@@ -37,73 +50,5 @@ public class Property {
 	@JoinColumn(name = "prop_luausr_id")
 	private AdminUser lastUpdatedBy;
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Project getProject() {
-		return project;
-	}
-
-	public void setProject(Project project) {
-		this.project = project;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getReferenceNumber() {
-		return referenceNumber;
-	}
-
-	public void setReferenceNumber(String referenceNumber) {
-		this.referenceNumber = referenceNumber;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Date getLastUpdatedDate() {
-		return lastUpdatedDate;
-	}
-
-	public void setLastUpdatedDate(Date lastUpdatedDate) {
-		this.lastUpdatedDate = lastUpdatedDate;
-	}
-
-	public AdminUser getLastUpdatedBy() {
-		return lastUpdatedBy;
-	}
-
-	public void setLastUpdatedBy(AdminUser lastUpdatedBy) {
-		this.lastUpdatedBy = lastUpdatedBy;
-	}
-
-	@Override
-	public String toString() {
-		return "Property [id=" + id + ", customer=" + customer + ", type=" + type + ", referenceNumber="
-				+ referenceNumber + ", status=" + status + ", lastUpdatedDate=" + lastUpdatedDate + "]";
-	}
 }
